@@ -2,13 +2,12 @@
 import * as React from 'react';
 import { useAppSelector } from 'src/hooks';
 import { useDispatch } from 'react-redux';
-import { sendMessage, typeText, incrementIdCounter } from 'src/actions';
+import { sendMessage, typeText } from 'src/actions';
 import './styles.scss';
 
 // == Composant
 const InputMessage = () => {
   const textValue = useAppSelector((state) => state.text);
-  const idCounterValue = useAppSelector((state) => state.idCounter);
   const dispatch = useDispatch();
   const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
     dispatch(typeText(event.currentTarget.value));
@@ -16,22 +15,19 @@ const InputMessage = () => {
   const handleEnterKey = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
       event.preventDefault();
-      const date = new Date().toLocaleString();
-      dispatch(sendMessage({ author: 'leChat', text: textValue, date }));
-      dispatch(incrementIdCounter(idCounterValue + 1));
+      dispatch(sendMessage());
       dispatch(typeText(''));
     }
   };
   const handleClickBtn = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const date = new Date().toLocaleString();
-    dispatch(sendMessage({ author: 'leChat', text: textValue, date }));
-    dispatch(incrementIdCounter(idCounterValue + 1));
+    dispatch(sendMessage());
     dispatch(typeText(''));
   };
   return (
     <form className="inputMessage">
       <input
+        className="inputMessage__input"
         type="text"
         placeholder="Saisissez votre message..."
         onChange={handleInputChange}
@@ -39,6 +35,7 @@ const InputMessage = () => {
         value={textValue}
       />
       <button
+        className="inputMessage__btn"
         type="submit"
         onClick={handleClickBtn}
       >

@@ -1,9 +1,8 @@
 .messages {
   padding: 1em;
-  height: 500px;
   background-color: rgb(159, 197, 159);
   overflow-y:scroll;
-  position: relative;
+  flex: 1;
   &__message {
     margin: 0 auto 1em;
     width: 70%;
