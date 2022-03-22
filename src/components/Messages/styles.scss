@@ -1,7 +1,7 @@
 .messages {
   padding: 1em;
   background-color: rgb(159, 197, 159);
-  overflow-y:scroll;
+  overflow-y: auto;
   flex: 1;
   &__message {
     margin: 0 auto 1em;

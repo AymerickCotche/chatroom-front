@@ -1,11 +1,18 @@
 // == Import
 import * as React from 'react';
+import { useEffect, useRef } from 'react';
 import _ from 'lodash';
 import { useAppSelector } from 'src/hooks';
 import './styles.scss';
 
 // == Composant
 const Messages = () => {
+  const messagesArea = useRef(null);
+  useEffect(() => {
+    if (!_.isNil(messagesArea)) {
+      messagesArea.current.scrollTop += messagesArea.current.scrollHeight;
+    }
+  });
   const messages = useAppSelector((state) => state.messages);
   const ejsMessage = (
     messages.map((message) => (
@@ -19,7 +26,7 @@ const Messages = () => {
     ))
   );
   return (
-    <div className="messages">
+    <div className="messages" ref={messagesArea}>
       {!_.isEmpty(messages) ? ejsMessage : 'Initiez une conversation'}
     </div>
   );
