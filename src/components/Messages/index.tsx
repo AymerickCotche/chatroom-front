@@ -8,12 +8,14 @@ import './styles.scss';
 // == Composant
 const Messages = () => {
   const messagesArea = useRef(null);
+  const messages = useAppSelector((state) => state.messages);
+
   useEffect(() => {
     if (!_.isNil(messagesArea)) {
       messagesArea.current.scrollTop += messagesArea.current.scrollHeight;
     }
-  });
-  const messages = useAppSelector((state) => state.messages);
+  }, [messages.length]);
+
   const ejsMessage = (
     messages.map((message) => (
       <ul className="messages__message" key={message.id}>

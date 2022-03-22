@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   SEND_MESSAGE,
   TYPE_TEXT,
+  TOGGLE_OPEN,
 } from 'src/actions';
 
 interface CounterState {
@@ -13,16 +14,22 @@ interface CounterState {
   }[],
   text: string,
   user: {
-    pseudo: string
+    pseudo: string,
+    email: string,
+    password: string,
   }
+  settingsOpen: boolean,
 }
 
 const initialState: CounterState = {
   messages: [],
   text: '',
   user: {
-    pseudo: 'leChat',
+    pseudo: '',
+    email: '',
+    password: '',
   },
+  settingsOpen: false,
 };
 
 const reducer = (
@@ -47,6 +54,8 @@ const reducer = (
       };
     case TYPE_TEXT:
       return { ...state, text: action.text };
+    case TOGGLE_OPEN:
+      return { ...state, settingsOpen: !state.settingsOpen };
     default:
       return state;
   }
