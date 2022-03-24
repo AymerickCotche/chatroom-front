@@ -1,0 +1,15 @@
+.status-bar {
+  margin: 1em;
+  text-align: right;
+  // position: absolute;
+  padding: 1em;
+  background-color: rgb(205, 223, 205);
+  border-radius: 40px;
+  display: flex;
+  flex-wrap: unset;
+  align-items: center;
+  height: 5em;
+  &__message {
+    margin-right: 1em;
+  }
+}

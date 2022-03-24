@@ -2,15 +2,15 @@
 import * as React from 'react';
 import Messages from 'src/components/Messages';
 import InputMessage from 'src/components/InputMessage';
-import Settings from 'src/components/Settings';
+import StatusBar from 'src/components/StatusBar';
 import './styles.scss';
 
 // == Composant
 const App = () => (
   <div className="app">
+    <StatusBar />
     <Messages />
     <InputMessage />
-    <Settings />
   </div>
 );
 

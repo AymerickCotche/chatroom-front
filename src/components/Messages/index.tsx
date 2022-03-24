@@ -29,7 +29,7 @@ const Messages = () => {
   );
   return (
     <div className="messages" ref={messagesArea}>
-      {!_.isEmpty(messages) ? ejsMessage : 'Initiez une conversation'}
+      {ejsMessage}
     </div>
   );
 };

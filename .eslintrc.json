@@ -20,7 +20,7 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "operator-linebreak": ["error", "after"],
-    "brace-style": ["error", "stroustrup"],
+    "brace-style": ["error", "1tbs"],
     "no-param-reassign": ["error", { "props": false }],
     "no-mixed-operators": ["error", { "allowSamePrecedence": true }],
     "jsx-a11y/no-static-element-interactions": "off",

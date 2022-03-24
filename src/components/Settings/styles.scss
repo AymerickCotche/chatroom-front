@@ -1,14 +1,9 @@
 .settings {
-  position: absolute;
   display: flex;
-  top: 5%;
-  left: 1%;
-  padding: 0em;
 
   &__close {
     height: 2em;
     width: 2em;
-    margin-right: 2em;
     border-radius: 50%;
     border: none;
     font-size: 1.2em;
@@ -21,10 +16,9 @@
     }
 
     display: flex;
-    flex-direction: column;
     
     &__email {
-      margin-bottom: 1em;
+      margin: 0 1em;
       border-radius: 3px;
       border: none;
       height: 3em;
@@ -34,7 +28,7 @@
     }
   
     &__password {
-      margin-bottom: 1em;
+      margin-right: 1em;
       border-radius: 3px;
       border: none;
       height: 3em;

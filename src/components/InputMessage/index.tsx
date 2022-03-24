@@ -10,6 +10,7 @@ import './styles.scss';
 // == Composant
 const InputMessage = () => {
   const textValue = useAppSelector((state) => state.text);
+  const connectedUser = useAppSelector((state) => state.user.email);
   const dispatch = useDispatch();
 
   const input = useRef(null);
@@ -22,7 +23,7 @@ const InputMessage = () => {
     dispatch(typeText(event.currentTarget.value));
   };
   const handleEnterKey = (event: React.KeyboardEvent) => {
-    if (event.key === 'Enter' && !_.isEmpty(textValue)) {
+    if (event.key === 'Enter' && !_.isEmpty(textValue && connectedUser)) {
       event.preventDefault();
       dispatch(sendMessage());
       dispatch(typeText(''));
@@ -30,7 +31,7 @@ const InputMessage = () => {
   };
   const handleClickBtn = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    if (!_.isEmpty(textValue)) {
+    if (!_.isEmpty(textValue && connectedUser)) {
       dispatch(sendMessage());
       dispatch(typeText(''));
     }
