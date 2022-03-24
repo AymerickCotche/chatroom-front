@@ -23,6 +23,7 @@ interface CounterState {
     email: string,
     password: string,
   },
+  connected: boolean,
   settingsOpen: boolean,
   settingsInput: {
     email: string,
@@ -39,6 +40,7 @@ const initialState: CounterState = {
     email: '',
     password: '',
   },
+  connected: false,
   settingsOpen: false,
   settingsInput: {
     email: '',
@@ -88,7 +90,12 @@ const reducer = (
         },
       };
     case LOGIN_SUCCESS:
-      return { ...state, user: { ...state.user, pseudo: action.payload }, settingsMessage: `Bienvenue ${action.payload}` };
+      return {
+        ...state,
+        user: { ...state.user, pseudo: action.payload },
+        settingsMessage: `Bienvenue ${action.payload}`,
+        connected: true,
+      };
     case LOGIN_FAILED:
       return { ...state, settingsMessage: 'Email ou mot de passe incorrect' };
     default:

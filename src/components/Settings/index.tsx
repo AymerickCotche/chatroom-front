@@ -67,7 +67,7 @@ const Settings = () => {
         type="button"
         onClick={handleClickToggleOpen}
       >
-        {settingsOpen ? '✖' : '+'}
+        {settingsOpen ? 'x' : '+'}
       </button>
       <form
         className="settings-form"
