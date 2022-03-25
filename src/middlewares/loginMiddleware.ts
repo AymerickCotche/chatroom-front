@@ -9,7 +9,7 @@ const loginMiddleware: Middleware = (store) => (next) => (action) => {
       const { settingsInput } = store.getState();
       axios({
         method: 'post',
-        url: 'http://localhost:3001/login',
+        url: 'http://192.168.1.19:3001/login',
         data: settingsInput,
       })
         .then((res) => {

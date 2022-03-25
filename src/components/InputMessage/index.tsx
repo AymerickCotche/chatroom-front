@@ -18,7 +18,7 @@ const InputMessage = () => {
     if (!_.isNil(input.current)) {
       input.current.focus();
     }
-  }, []);
+  }, [connectedUser]);
   const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
     dispatch(typeText(event.currentTarget.value));
   };
@@ -46,11 +46,13 @@ const InputMessage = () => {
         onChange={handleInputChange}
         onKeyPress={handleEnterKey}
         value={textValue}
+        disabled={!connectedUser}
       />
       <button
         className="inputMessage__btn"
         type="submit"
         onClick={handleClickBtn}
+        disabled={!connectedUser}
       >
         &gt;
       </button>

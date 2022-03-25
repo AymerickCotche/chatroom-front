@@ -1,12 +1,16 @@
 .settings {
   display: flex;
 
-  &__close {
+  &__toggle {
     height: 2em;
     width: 2em;
     border-radius: 50%;
     border: none;
     font-size: 1.2em;
+    transition: ease-in-out 0.2s;
+    &__openned {
+      transform: rotate(45deg);
+    }
   }
 
   .settings-form {

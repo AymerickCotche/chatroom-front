@@ -8,6 +8,7 @@ import {
   SUBMIT_SETTINGS_FORM,
   LOGIN_SUCCESS,
   LOGIN_FAILED,
+  DISCONNECT_USER
 } from 'src/actions';
 
 interface CounterState {
@@ -98,6 +99,13 @@ const reducer = (
       };
     case LOGIN_FAILED:
       return { ...state, settingsMessage: 'Email ou mot de passe incorrect' };
+    case DISCONNECT_USER:
+      return {
+        ...state,
+        user: { pseudo: '', email: '', password: '' },
+        connected: !state.connected,
+        settingsMessage: 'Veuillez vous connecter',
+      };
     default:
       return state;
   }

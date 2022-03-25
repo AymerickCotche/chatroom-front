@@ -63,11 +63,11 @@ const Settings = () => {
       className="settings"
     >
       <button
-        className="settings__close"
+        className={settingsOpen ? 'settings__toggle settings__toggle__openned' : 'settings__toggle'}
         type="button"
         onClick={handleClickToggleOpen}
       >
-        {settingsOpen ? 'x' : '+'}
+        +
       </button>
       <form
         className="settings-form"
