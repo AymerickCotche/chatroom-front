@@ -21,7 +21,7 @@ const wsMW: Middleware = (store) => (next) => (action) => {
     }
     case WS_SEND_TO_SERVER: {
       const socket = window.io('http://192.168.1.19:3001/');
-      socket.emit('client_message', { text: store.getState().text });
+      socket.emit('client_message', { message: store.getState().text, author: store.getState().user.pseudo });
       break;
     }
     default:
