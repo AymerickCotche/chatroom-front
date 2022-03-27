@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { useEffect } from 'react';
 import { useAppSelector } from 'src/hooks';
 import messageSound from 'src/assets/medias/songs/message.mp3';
+import useSound from '../../hooks/useSound';
 import './styles.scss';
 
 type CounterProps = {
@@ -15,12 +15,7 @@ const Message = ({
   text,
   date,
 } : CounterProps) => {
-  useEffect(() => {
-    console.log('coucou');
-    const sound = new Audio(messageSound);
-    sound.play();
-  }, []);
-
+  useSound(messageSound);
   const currentUser = useAppSelector((state) => state.user.pseudo);
   const isMine = currentUser === author;
   const classnames = isMine ? 'message message--is-mine' : 'message';
