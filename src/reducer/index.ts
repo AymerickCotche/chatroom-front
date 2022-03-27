@@ -11,7 +11,7 @@ import {
   DISCONNECT_USER
 } from 'src/actions';
 
-interface CounterState {
+export interface CounterState {
   messages: {
     author: string;
     text: string;

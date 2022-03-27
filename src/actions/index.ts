@@ -7,6 +7,7 @@ export const SUBMIT_SETTINGS_FORM = 'SUBMIT_SETTINGSFORM';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
 export const DISCONNECT_USER = 'DISCONNECT_USER';
+export const WS_CONNECT = 'WS_CONNECT';
 
 export const sendMessage = () => ({
   type: SEND_MESSAGE,
@@ -44,4 +45,8 @@ export const loginFailed = () => ({
 
 export const disconnectUser = () => ({
   type: DISCONNECT_USER,
+});
+
+export const wsConnect = () => ({
+  type: WS_CONNECT,
 });

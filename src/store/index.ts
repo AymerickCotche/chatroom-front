@@ -1,6 +1,7 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import reducer from 'src/reducer';
 import loginMiddleware from 'src/middlewares/loginMiddleware';
+import wsMW from 'src/middlewares/wsMW';
 
 declare global {
   interface Window {
@@ -16,6 +17,7 @@ const store = createStore(
   composeEnhancers(
     applyMiddleware(
       loginMiddleware,
+      wsMW,
     ),
   ),
 );
