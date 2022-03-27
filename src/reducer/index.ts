@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import {
   SEND_MESSAGE,
   TYPE_TEXT,
@@ -8,7 +8,7 @@ import {
   SUBMIT_SETTINGS_FORM,
   LOGIN_SUCCESS,
   LOGIN_FAILED,
-  DISCONNECT_USER
+  DISCONNECT_USER,
 } from 'src/actions';
 
 export interface CounterState {

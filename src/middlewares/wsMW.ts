@@ -20,7 +20,8 @@ const wsMW: Middleware = (store) => (next) => (action) => {
       break;
     }
     case WS_SEND_TO_SERVER: {
-      socket.emit('client_message', { text: store.getState().text, author: store.getState().user.pseudo, date: new Date().toLocaleString() });
+      const state = store.getState();
+      socket.emit('client_message', { text: state.text, author: state.user.pseudo, date: new Date().toLocaleString() });
       break;
     }
     default:

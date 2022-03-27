@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useEffect, useRef } from 'react';
 import { useAppSelector } from 'src/hooks';
 import { useDispatch } from 'react-redux';
-import { sendMessage, typeText, wsSendToServer } from 'src/actions';
+import { typeText, wsSendToServer } from 'src/actions';
 import './styles.scss';
 
 // == Composant

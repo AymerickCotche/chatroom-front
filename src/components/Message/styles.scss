@@ -1,0 +1,22 @@
+.message {
+  margin: 0 auto 1em;
+  &--is-mine {
+    text-align: right;
+  }
+
+  &__infos {
+    color: white;
+    margin-bottom: 0.2em;
+    &__date {
+      color: greenyellow;
+    }
+  }    
+  &__text {
+    display: inline-block;
+    background-color: rgb(164, 200, 240);
+    padding: 0.5em;
+    border-radius: 50px;
+    word-wrap: break-word;
+  }
+
+}
