@@ -10,8 +10,13 @@ export const DISCONNECT_USER = 'DISCONNECT_USER';
 export const WS_CONNECT = 'WS_CONNECT';
 export const WS_SEND_TO_SERVER = 'WS_SEND_TO_SERVER';
 
-export const sendMessage = () => ({
+export const sendMessage = (message: {
+  text:string,
+  id: number,
+  author: string,
+  date: string }) => ({
   type: SEND_MESSAGE,
+  message,
 });
 
 export const toggleOpenSetting = () => ({

@@ -58,19 +58,21 @@ const reducer = (
     text?: string,
     email?: string,
     password?: string,
-    payload?: string
+    payload?: string,
   } = {},
 ) => {
   switch (action.type) {
     case SEND_MESSAGE:
       return {
         ...state,
-        messages: [...state.messages, {
-          id: uuidv4(),
-          author: state.user.pseudo,
-          text: state.text,
-          date: new Date().toLocaleString(),
-        },
+        messages: [...state.messages,
+          // {
+          //   id: uuidv4(),
+          //   author: state.user.pseudo,
+          //   text: state.text,
+          //   date: new Date().toLocaleString(),
+          // },
+          action.message,
         ],
       };
     case TYPE_TEXT:
