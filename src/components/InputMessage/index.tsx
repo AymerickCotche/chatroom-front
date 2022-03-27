@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useEffect, useRef } from 'react';
 import { useAppSelector } from 'src/hooks';
 import { useDispatch } from 'react-redux';
-import { sendMessage, typeText } from 'src/actions';
+import { sendMessage, typeText, wsSendToServer } from 'src/actions';
 import './styles.scss';
 
 // == Composant
@@ -14,6 +14,7 @@ const InputMessage = () => {
   const dispatch = useDispatch();
 
   const input = useRef(null);
+
   useEffect(() => {
     if (!_.isNil(input.current)) {
       input.current.focus();
@@ -22,17 +23,18 @@ const InputMessage = () => {
   const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
     dispatch(typeText(event.currentTarget.value));
   };
+
   const handleEnterKey = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter' && !_.isEmpty(textValue) && connectedUser) {
       event.preventDefault();
-      dispatch(sendMessage());
+      dispatch(wsSendToServer());
       dispatch(typeText(''));
     }
   };
   const handleClickBtn = (event: React.SyntheticEvent) => {
     event.preventDefault();
     if (!_.isEmpty(textValue) && connectedUser) {
-      dispatch(sendMessage());
+      dispatch(wsSendToServer());
       dispatch(typeText(''));
     }
   };
