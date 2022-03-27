@@ -3,6 +3,8 @@ import * as React from 'react';
 import { useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from 'src/hooks';
+import openSound from 'src/assets/medias/songs/settings.wav';
+import useSound from '../../hooks/useSound';
 import {
   toggleOpenSetting,
   typeEmail,
@@ -17,6 +19,8 @@ const Settings = () => {
   const emailValue = useAppSelector((state) => state.settingsInput.email);
   const passwordValue = useAppSelector((state) => state.settingsInput.password);
   const settingsForm = useRef(null);
+
+  useSound(openSound, settingsOpen);
 
   const handleClickToggleOpen = () => {
     dispatch(toggleOpenSetting());

@@ -82,7 +82,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(mp3)$/,
+        test: /\.(?:mp3|wav)$/,
         type: 'asset',
         generator: {
           filename: 'medias/songs/[hash][ext][query]',
